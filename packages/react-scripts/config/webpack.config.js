@@ -696,6 +696,15 @@ module.exports = function(webpackEnv) {
             // a route with query params (e.g. auth callbacks).
             new RegExp('/[^/?]+\\.[^/]+$'),
           ],
+          runtimeCaching: [
+            {
+              urlPattern: /index\.html/,
+              handler: 'NetworkFirst',
+              options: {
+                networkTimeoutSeconds: 8
+              }
+            }
+          ]
         }),
       // TypeScript type checking
       useTypeScript &&
